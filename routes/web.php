@@ -60,9 +60,12 @@ Route::resource('attendance', AttendanceController::class);
 
 //Email
 
-Route::get('/send-email', [EmailController::class, 'send']);
+Route::get('/send-email', [EmailController::class, 'send'])->name('admin.email.test');
 
 Route::get('/send-promotion', [CRMController::class, 'showSendPromotionForm']);
 Route::post('/send-promotion', [CRMController::class, 'sendPromotion'])->name('send.promotion');
 Route::get('/send-promotion', [CRMController::class, 'showSendPromotionForm'])->name('send.promotion.form');
+
+use App\Http\Controllers\PromotionController;
+Route::get('/promotions', [PromotionController::class, 'index'])->name('crm.promotions');
 

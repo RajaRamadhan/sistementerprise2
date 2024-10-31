@@ -20,7 +20,7 @@ class EmailController extends Controller
             Mail::to($user->email)
             ->send(new TestMail( 'Test Email Cobaan','judul','ini adalah isi contentnya'));
             return 'Pesan Telah Terkirim';
+            return view('admin.email.test', compact('test'));
         }
-        
     }
 }
